@@ -18,18 +18,22 @@ git clone https://github.com/olivernadj/Development-environment-for-Ruby-CoderSc
 cd ./project && \
     mkdir ./railsapp && \
     cp -f ./files/Gemfile ./railsapp/Gemfile && \
-    cp -f ./files/Gemfile.lock ./railsapp/Gemfile.lock && \
+    cp -f ./files/Gemfile.lock ./railsapp/Gemfile.lock
+#The following comman could take few minutes mostly depends on internet connections. 
 docker-compose build
+#The coffee making break
 docker-compose run web rails new . --force --database=postgresql --skip-bundle
 sudo chown -R $USER:$USER . && \
     cp -f ./files/Gemfile ./railsapp/Gemfile && \
     cp -f ./files/Gemfile.lock ./railsapp/Gemfile.lock && \
+    cp -f ./files/database.yml ./railsapp/config/database.yml && \
     cp -f ./files/application.js ./railsapp/app/assets/javascripts/application.js && \
     cp -f ./files/application.scss ./railsapp/app/assets/stylesheets/application.scss && \
-    rm ./railsapp/app/assets/stylesheets/application.css && \
-    cp -f /files/database.yml ./railsapp/config/database.yml
+    rm ./railsapp/app/assets/stylesheets/application.css
+    
 docker-compose build
 sudo chown -R $USER:$USER .
+#Please take a look at Useful commands. Maybe you prefer to create database befor start the containers
 docker-compose up
 ```
 

@@ -15,7 +15,10 @@ The developent environment use
 
 ```bash
 git clone https://github.com/olivernadj/Development-environment-for-Ruby-CoderSchool ./project
-cd ./project
+cd ./project && \
+    mkdir ./railsapp && \
+    cp -f ./files/Gemfile ./railsapp/Gemfile && \
+    cp -f ./files/Gemfile.lock ./railsapp/Gemfile.lock && \
 docker-compose build
 docker-compose run web rails new . --force --database=postgresql --skip-bundle
 sudo chown -R $USER:$USER . && \
@@ -49,8 +52,6 @@ docker exec -i -t project_web_1 bash
 #list of running containers
 watch "docker ps --format='table{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 ```
-
-
 
 ## License
 

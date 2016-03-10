@@ -49,12 +49,35 @@ sudo chown -R $USER:$USER .
 When containers up, in other console:
 ```bash
 #rake operations
-docker exec -i -t web rake db:create 
-docker exec -i -t web rake db:migrate RAILS_ENV=development
+docker exec -i -t project_web_1 rake db:create 
+docker exec -i -t project_web_1 rake db:migrate RAILS_ENV=development
 #interactive bash
 docker exec -i -t project_web_1 bash
 #list of running containers
 watch "docker ps --format='table{{.Image}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
+```
+
+## Heroku and GitHub workaround
+
+```bash
+#interactive bash
+docker exec -i -t project_web_1 bash
+# GitHub workaround
+git init
+git add -A
+git commit -a -m "Initial commit for Week 1 Assignment - CoderRestaurant"
+#Create your repo at https://github.com/ and copy the url
+git remote add origin https://github.com/....git
+git remote -v
+git push origin master
+
+#Heroku workaround
+heroku login
+heroku create
+git pull
+git pull origin master
+git remote -v
+git push heroku master
 ```
 
 ## License

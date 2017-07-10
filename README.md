@@ -19,7 +19,7 @@ cd ./project && \
     mkdir ./railsapp && \
     cp -f ./files/Gemfile ./railsapp/Gemfile && \
     cp -f ./files/Gemfile.lock ./railsapp/Gemfile.lock
-#The following comman could take few minutes mostly depends on internet connections. 
+#The following command could take few minutes mostly depends on internet connections. 
 docker-compose build
 #The coffee making break
 docker-compose run web rails new . --force --database=postgresql --skip-bundle
